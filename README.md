@@ -1,2 +1,3 @@
 # PLgraphe
-Promagation lineaire graphique
+
+Promagation lineaire par la methode graphique
