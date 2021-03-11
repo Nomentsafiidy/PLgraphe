@@ -1,0 +1,2 @@
+# PLgraphe
+Promagation lineaire graphique
