@@ -1,0 +1,37 @@
+:root {
+  --margin-16: 16px;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.fullscreen {
+  background-color: red;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  background: green;
+  height: 100%;
+  overflow: hidden;
+}
+.pl_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.pl_container .pl_left_container {
+  width: 50%;
+  height: 100%;
+  background: white;
+}
+.pl_container .pl_right_container {
+  width: 50%;
+  height: 100%;
+  background: black;
+}
