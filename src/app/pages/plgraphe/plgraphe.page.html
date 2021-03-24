@@ -4,16 +4,33 @@
     <div class="pl_variable_container">
       <div class="pl_variable">
         <label class="f_text_primary" for="var1">Variable 1 : </label>
-        <input class="f_input" type="text" id="var1" placeholder="X" />
+        <input
+          class="f_input"
+          type="text"
+          id="var1"
+          placeholder="X"
+          [(ngModel)]="var1"
+        />
       </div>
       <div>
         <label class="f_text_primary" for="var2">Variable 2 : </label>
-        <input class="f_input" type="text" id="var2" placeholder="Y" />
+        <input
+          class="f_input"
+          type="text"
+          id="var2"
+          placeholder="Y"
+          [(ngModel)]="var2"
+        />
       </div>
     </div>
     <div class="f_text_primary pl_subtitle">Les Contraintes</div>
     <div class="pl_contrainte_container">
-      <input class="f_input" type="text" placeholder="Contraintes" />
+      <input
+        (input)="contrainteChange($event)"
+        class="f_input"
+        type="text"
+        placeholder="Contraintes"
+      />
       <button class="f_btn_warning">Ajouter un contrainte</button>
     </div>
     <div class="f_text_primary pl_subtitle">Les économique</div>
