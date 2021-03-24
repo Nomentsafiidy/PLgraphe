@@ -1,29 +1,33 @@
 <div class="container pl_container">
   <div class="pl_left_container">
-    <div class="pl_variable">
-      <div>Les Variable</div>
-      <label for="">Variable 1 : </label>
-      <input type="text" placeholder="X" />
-      <label for="">Variable 2 : </label>
-      <input type="text" placeholder="Y" />
+    <div class="f_text_primary pl_subtitle my_10">Les Variable</div>
+    <div class="pl_variable_container">
+      <div class="pl_variable">
+        <label class="f_text_primary" for="var1">Variable 1 : </label>
+        <input class="f_input" type="text" id="var1" placeholder="X" />
+      </div>
+      <div>
+        <label class="f_text_primary" for="var2">Variable 2 : </label>
+        <input class="f_input" type="text" id="var2" placeholder="Y" />
+      </div>
     </div>
-    <div class="pl_contrainte">
-      <div for="">Les Contraintes</div>
-      <input type="text" placeholder="Contraintes" />
-      <button>Ajouter un contrainte</button>
+    <div class="f_text_primary pl_subtitle">Les Contraintes</div>
+    <div class="pl_contrainte_container">
+      <input class="f_input" type="text" placeholder="Contraintes" />
+      <button class="f_btn_warning">Ajouter un contrainte</button>
     </div>
+    <div class="f_text_primary pl_subtitle">Les économique</div>
     <div class="pl_func_economique">
-      <div for="">Les économique</div>
-      <select value="max">
+      <select class="f_input" value="max">
         <option value="max">MAX</option>
         <option value="min">MIN</option>
       </select>
-      <input type="text" placeholder="fonction économique" />
+      <input class="f_input" type="text" placeholder="fonction économique" />
     </div>
-    <div>
-      <button>Résoudre</button>
+    <div class="">
+      <button class="f_btn_warning">Résoudre</button>
     </div>
-    <div class="pl_resultat">
+    <div class="f_text_primary pl_subtitle">
       <span> Resultat :</span>
     </div>
   </div>
