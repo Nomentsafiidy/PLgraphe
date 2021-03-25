@@ -26,12 +26,16 @@
     <div class="f_text_primary pl_subtitle">Les Contraintes</div>
     <div class="pl_contrainte_container">
       <input
-        (input)="contrainteChange($event)"
+        *ngFor="let contrainte of contraintes; let i =index"
+        (input)="contrainteChange($event, i)"
+        [value]="contrainte[i]"
         class="f_input"
         type="text"
         placeholder="Contraintes"
       />
-      <button class="f_btn_warning">Ajouter un contrainte</button>
+      <button (click)="addContraintInput()" class="f_btn_warning">
+        Ajouter un contrainte
+      </button>
     </div>
     <div class="f_text_primary pl_subtitle">Les économique</div>
     <div class="pl_func_economique">
