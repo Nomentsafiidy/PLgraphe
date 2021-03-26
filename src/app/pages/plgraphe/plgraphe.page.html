@@ -1,56 +1,42 @@
 <div class="container pl_container">
-  <div class="pl_left_container">
-    <div class="f_text_primary pl_subtitle my_10">Les Variable</div>
-    <div class="pl_variable_container">
-      <div class="pl_variable">
-        <label class="f_text_primary" for="var1">Variable 1 : </label>
-        <input
-          class="f_input"
-          type="text"
-          id="var1"
-          placeholder="X"
-          [(ngModel)]="var1"
-        />
-      </div>
-      <div>
-        <label class="f_text_primary" for="var2">Variable 2 : </label>
-        <input
-          class="f_input"
-          type="text"
-          id="var2"
-          placeholder="Y"
-          [(ngModel)]="var2"
-        />
-      </div>
+    <div class="pl_left_container">
+        <div class="f_text_primary pl_subtitle my_10">Les Variable</div>
+        <div class="pl_variable_container">
+            <div class="pl_variable">
+                <label class="f_text_primary" for="var1">Variable 1 : </label>
+                <input class="f_input" type="text" id="var1" placeholder="X" [(ngModel)]="var1" />
+            </div>
+            <div>
+                <label class="f_text_primary" for="var2">Variable 2 : </label>
+                <input class="f_input" type="text" id="var2" placeholder="Y" [(ngModel)]="var2" />
+            </div>
+        </div>
+        <div class="f_text_primary pl_subtitle">Les Contraintes</div>
+        <div class="pl_contrainte_container">
+            <div *ngFor="let contrainte of contraintes; let i =index" class="pl_contrainte_item">
+                <input (input)="contrainteChange($event, contrainte.id)" [(ngModel)]="contrainte.contrainte" class="f_input" type="text" [id]="'contrainte'+ contrainte.id" placeholder="Contraintes" />
+                <i (click)="removeConstraint(contrainte.id)" class="material-icons">
+                    cancel
+                </i>
+            </div>
+            <button (click)="addContraintInput()" class="f_btn_warning">
+                Ajouter un contrainte
+            </button>
+        </div>
+        <div class="f_text_primary pl_subtitle">Les économique</div>
+        <div class="pl_func_economique">
+            <select class="f_input" value="max">
+                <option value="max">MAX</option>
+                <option value="min">MIN</option>
+            </select>
+            <input class="f_input" type="text" placeholder="fonction économique" />
+        </div>
+        <div class="">
+            <button class="f_btn_warning">Résoudre</button>
+        </div>
+        <div class="f_text_primary pl_subtitle">
+            <span> Resultat :</span>
+        </div>
     </div>
-    <div class="f_text_primary pl_subtitle">Les Contraintes</div>
-    <div class="pl_contrainte_container">
-      <input
-        *ngFor="let contrainte of contraintes; let i =index"
-        (input)="contrainteChange($event, i)"
-        [value]="contrainte[i]"
-        class="f_input"
-        type="text"
-        placeholder="Contraintes"
-      />
-      <button (click)="addContraintInput()" class="f_btn_warning">
-        Ajouter un contrainte
-      </button>
-    </div>
-    <div class="f_text_primary pl_subtitle">Les économique</div>
-    <div class="pl_func_economique">
-      <select class="f_input" value="max">
-        <option value="max">MAX</option>
-        <option value="min">MIN</option>
-      </select>
-      <input class="f_input" type="text" placeholder="fonction économique" />
-    </div>
-    <div class="">
-      <button class="f_btn_warning">Résoudre</button>
-    </div>
-    <div class="f_text_primary pl_subtitle">
-      <span> Resultat :</span>
-    </div>
-  </div>
-  <div class="pl_right_container"></div>
+    <div class="pl_right_container"></div>
 </div>
