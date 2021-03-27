@@ -22,7 +22,15 @@ export class Constraint {
     return this.id;
   };
 
+  public setId = (id: number): void => {
+    this.id = id;
+  };
+
   public getFunc = (): string => {
     return this.func;
+  };
+
+  public setFunc = (func: string): void => {
+    this.func = func;
   };
 }

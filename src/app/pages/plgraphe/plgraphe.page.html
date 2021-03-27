@@ -25,20 +25,20 @@
     </div>
     <div class="f_text_primary pl_subtitle">Les Contraintes</div>
     <div class="pl_contrainte_container">
-      <div
-        *ngFor="let contrainte of contraintes; let i =index"
-        class="pl_contrainte_item"
-      >
+      <div *ngFor="let constraint of constraints;" class="pl_contrainte_item">
         <input
-          (input)="contrainteChange($event, contrainte.id)"
-          [(ngModel)]="contrainte.contrainte"
+          (input)="contrainteChange($event, 1)"
+          [(ngModel)]="constraint.func"
           class="f_input"
-          [class]="checkContrainte(contrainte.id)"
+          [class]="checkContrainte(constraint.getId())"
           type="text"
-          [id]="'contrainte'+ contrainte.id"
+          [id]="'contrainte'+ constraint.getId()"
           placeholder="Contraintes"
         />
-        <i (click)="removeConstraint(contrainte.id)" class="material-icons">
+        <i
+          (click)="removeConstraint(constraint.getId())"
+          class="material-icons"
+        >
           cancel
         </i>
       </div>

@@ -10,26 +10,14 @@ export class PlgraphePage implements OnInit {
   public var1: string;
   public var2: string;
 
-  public contraintes: {
-    id: number;
-    contrainte: string;
-  }[] = [
-    {
-      id: 0,
-      contrainte: '',
-    },
-  ];
-
-  public constrainte: Constraint;
+  public constraints: Constraint[] = [new Constraint(0, '')];
 
   constructor(private constraintService: ConstraintService) {}
 
-  ngOnInit(): void {
-    this.constrainte = new Constraint(1, 'test');
-  }
+  ngOnInit(): void {}
 
   public contrainteChange(event: any, index: number) {
-    console.log('contraintes', this.contraintes);
+    console.log('contraintes', this.constraints);
 
     // console.log('contrainte i', index);
     // this.contraintes[index] = event.target.value;
@@ -61,19 +49,18 @@ export class PlgraphePage implements OnInit {
   private rebuildContraintes() {}
 
   public addContraintInput() {
-    this.contraintes.push({
-      id: this.contraintes.length,
-      contrainte: '',
-    });
+    this.constraints.push(new Constraint(this.constraints.length, ''));
   }
 
   public removeConstraint(id: number) {
-    let tmp = this.contraintes.filter((constrainte) => {
-      return constrainte.id !== id ? constrainte : null;
-    });
-    this.contraintes = tmp.filter((constrainte, id) => {
-      constrainte.id = id;
-      return constrainte;
+    let tmp: Constraint[] = this.constraints.filter(
+      (constraint: Constraint) => {
+        return constraint.getId() !== id ? constraint : null;
+      }
+    );
+    this.constraints = tmp.filter((constraint: Constraint, id: number) => {
+      constraint.setId(id);
+      return constraint;
     });
   }
 }
