@@ -1,1 +1,1 @@
-export * from './contrainte.service';
+export * from './constraint.service';

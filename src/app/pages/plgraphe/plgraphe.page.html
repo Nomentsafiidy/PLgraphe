@@ -33,6 +33,7 @@
           (input)="contrainteChange($event, contrainte.id)"
           [(ngModel)]="contrainte.contrainte"
           class="f_input"
+          [class]="checkContrainte(contrainte.id)"
           type="text"
           [id]="'contrainte'+ contrainte.id"
           placeholder="Contraintes"

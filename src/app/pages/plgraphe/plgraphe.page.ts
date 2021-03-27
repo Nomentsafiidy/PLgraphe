@@ -1,58 +1,79 @@
 import { Component, OnInit } from '@angular/core';
-import { ContrainteService } from 'src/app/services/';
+import { ConstraintService } from 'src/app/services/';
+import { Constraint } from 'src/app/models/constraint';
 @Component({
-    selector: 'app-plgraphe',
-    templateUrl: './plgraphe.page.html',
-    styleUrls: ['./plgraphe.page.scss'],
+  selector: 'app-plgraphe',
+  templateUrl: './plgraphe.page.html',
+  styleUrls: ['./plgraphe.page.scss'],
 })
 export class PlgraphePage implements OnInit {
-    public var1: string;
-    public var2: string;
+  public var1: string;
+  public var2: string;
 
-    public contraintes: {
-        id: number;
-        contrainte: string;
-    }[] = [
-        {
-            id: 0,
-            contrainte: '',
-        },
-    ];
+  public contraintes: {
+    id: number;
+    contrainte: string;
+  }[] = [
+    {
+      id: 0,
+      contrainte: '',
+    },
+  ];
 
-    constructor(private contrainteService: ContrainteService) {}
+  public constrainte: Constraint;
 
-    ngOnInit(): void {}
+  constructor(private constraintService: ConstraintService) {}
 
-    public contrainteChange(event: any, index: number) {
-        console.log('contraintes', this.contraintes);
+  ngOnInit(): void {
+    this.constrainte = new Constraint(1, 'test');
+  }
 
-        // console.log('contrainte i', index);
-        // this.contraintes[index] = event.target.value;
-        // console.log(this.contraintes[index]);
-        // const contrainte: string = event.target.value;
-        // if (this.contrainteService.isContrainte(contrainte)) {
-        //   if (this.contraintes.length <= index) {
-        //     this.contraintes.push();
-        //   }
-        // }
-    }
+  public contrainteChange(event: any, index: number) {
+    console.log('contraintes', this.contraintes);
 
-    private rebuildContraintes() {}
+    // console.log('contrainte i', index);
+    // this.contraintes[index] = event.target.value;
+    // console.log(this.contraintes[index]);
+    // const contrainte: string = event.target.value;
+    // if (this.contrainteService.isContrainte(contrainte)) {
+    //   if (this.contraintes.length <= index) {
+    //     this.contraintes.push();
+    //   }
+    // }
+  }
 
-    public addContraintInput() {
-        this.contraintes.push({
-            id: this.contraintes.length,
-            contrainte: '',
-        });
-    }
+  public checkContrainte(id: number) {
+    // if (this.var1 && this.var1 !== '' && this.var2 && this.var2 !== '') {
+    //   if (
+    //     this.contrainteService.isContrainte(
+    //       this.var1,
+    //       this.var2,
+    //       this.contraintes[id]
+    //     )
+    //   ) {
+    //     return '';
+    //   }
+    //   return 'f_input_danger';
+    // }
+    // return '';
+  }
 
-    public removeConstraint(id: number) {
-        let tmp = this.contraintes.filter((constrainte) => {
-            return constrainte.id !== id ? constrainte : null;
-        });
-        this.contraintes = tmp.filter((constrainte, id) => {
-            constrainte.id = id;
-            return constrainte;
-        });
-    }
+  private rebuildContraintes() {}
+
+  public addContraintInput() {
+    this.contraintes.push({
+      id: this.contraintes.length,
+      contrainte: '',
+    });
+  }
+
+  public removeConstraint(id: number) {
+    let tmp = this.contraintes.filter((constrainte) => {
+      return constrainte.id !== id ? constrainte : null;
+    });
+    this.contraintes = tmp.filter((constrainte, id) => {
+      constrainte.id = id;
+      return constrainte;
+    });
+  }
 }
