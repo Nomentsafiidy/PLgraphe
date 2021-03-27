@@ -16,8 +16,11 @@ export class PlgraphePage implements OnInit {
 
   ngOnInit(): void {}
 
-  public contrainteChange(event: any, index: number) {
+  public contrainteChange(event: any, id: number) {
+    console.log('id', id);
+
     console.log('contraintes', this.constraints);
+    console.log('this.constraints', this.constraints[id].isContrainte());
 
     // console.log('contrainte i', index);
     // this.contraintes[index] = event.target.value;
@@ -48,6 +51,14 @@ export class PlgraphePage implements OnInit {
 
   private rebuildContraintes() {}
 
+  // event in the Dom
+  public variableChange() {
+    Constraint.setVariables(
+      this.var1 ? this.var1 : '',
+      this.var2 ? this.var2 : ''
+    );
+  }
+
   public addContraintInput() {
     this.constraints.push(new Constraint(this.constraints.length, ''));
   }
@@ -62,13 +73,5 @@ export class PlgraphePage implements OnInit {
       constraint.setId(id);
       return constraint;
     });
-  }
-
-  // event in the Dom
-  public variableChange() {
-    Constraint.setVariables(
-      this.var1 ? this.var1 : '',
-      this.var2 ? this.var2 : ''
-    );
   }
 }

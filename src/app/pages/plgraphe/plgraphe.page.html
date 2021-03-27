@@ -29,7 +29,7 @@
     <div class="pl_contrainte_container">
       <div *ngFor="let constraint of constraints;" class="pl_contrainte_item">
         <input
-          (input)="contrainteChange($event, 1)"
+          (input)="contrainteChange($event, constraint.getId())"
           [(ngModel)]="constraint.func"
           class="f_input"
           [class]="checkContrainte(constraint.getId())"

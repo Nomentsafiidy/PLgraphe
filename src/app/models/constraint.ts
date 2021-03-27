@@ -33,4 +33,20 @@ export class Constraint {
   public setFunc = (func: string): void => {
     this.func = func;
   };
+
+  public isContrainte = (): boolean => {
+    let reg = new RegExp(
+      `^[\+|\-]?[0-9]{1,}${Constraint.var1}[\+|\-|\*|\/]{1,1}[0-9]{1,}${Constraint.var2}((\=)|(\<\=)|(\>\=)|(\<)|(\>))[0-9]{1,}$`
+    );
+
+    if (reg.test(this.func)) {
+      console.log(true);
+
+      return true;
+    } else {
+      console.log(false);
+
+      return false;
+    }
+  };
 }
