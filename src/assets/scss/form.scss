@@ -15,6 +15,21 @@
   }
 }
 
+.f_input_danger {
+  height: 50px;
+  width: 100%;
+  border-radius: 0px;
+  padding: 0px 16px;
+  margin: 10px 0px;
+  background-color: white !important;
+  border: 1px solid var(--negative-color) !important;
+  font-size: 14px;
+  color: #999999;
+  &:focus {
+    outline: none;
+  }
+}
+
 .f_btn_warning {
   height: 50px;
   padding: 0px 16px;
