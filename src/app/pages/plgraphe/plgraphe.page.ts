@@ -63,4 +63,12 @@ export class PlgraphePage implements OnInit {
       return constraint;
     });
   }
+
+  // event in the Dom
+  public variableChange() {
+    Constraint.setVariables(
+      this.var1 ? this.var1 : '',
+      this.var2 ? this.var2 : ''
+    );
+  }
 }
