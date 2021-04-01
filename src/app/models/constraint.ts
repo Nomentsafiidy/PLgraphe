@@ -36,9 +36,10 @@ export class Constraint {
 
   public isContrainte = (): boolean => {
     let reg = new RegExp(
-      `^[\+|\-]?[0-9]{1,}${Constraint.var1}[\+|\-|\*|\/]{1,1}[0-9]{1,}${Constraint.var2}((\=)|(\<\=)|(\>\=)|(\<)|(\>))[0-9]{1,}$`
+      `^[\+|\-]?[0-9]{1,}${Constraint.var1}[\+|\-|\*|\/]{1,1}[0-9]{1,}${Constraint.var2}((\=)|(\<\=)|(\>\=)|(\<)|(\>)){1,1}[0-9]{1,}$`
     );
 
+    console.log('*** match ****', this.func.match(reg));
     if (reg.test(this.func)) {
       console.log(true);
 
